@@ -13,5 +13,6 @@ public class Test
     {
         System.out.println("ahhhh");
         System.out.println("noob");
+        System.err.println("ha");
     }
 }
