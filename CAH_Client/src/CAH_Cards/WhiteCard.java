@@ -7,11 +7,11 @@ import java.util.ArrayList;
  *
  * @author Nick and Justin
  */
-public class WhiteCard {
-    ArrayList<String> whitecardArray = new ArrayList<>();
+public class WhiteCard extends Card
+{
     
     public WhiteCard(String txt)
     {
-    
+        this.txt = txt;
     }
 }
