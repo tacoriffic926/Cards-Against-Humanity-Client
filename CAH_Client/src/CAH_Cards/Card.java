@@ -5,11 +5,14 @@
  */
 package CAH_Cards;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Nick and Justin
  */
 public abstract class Card 
 {
-    
+    ArrayList<String> backcardArray = new ArrayList<>();
+    ArrayList<String> whitecardArray = new ArrayList<>();
 }
