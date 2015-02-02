@@ -5,7 +5,7 @@
  */
 /**
  *
- * @author Nick
+ * @author Nick and Justin
  */
 public class Test 
 {
