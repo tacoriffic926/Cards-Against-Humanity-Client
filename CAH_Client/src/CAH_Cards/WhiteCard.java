@@ -9,4 +9,9 @@ import java.util.ArrayList;
  */
 public class WhiteCard {
     ArrayList<String> whitecardArray = new ArrayList<>();
+    
+    public WhiteCard(String txt)
+    {
+    
+    }
 }
