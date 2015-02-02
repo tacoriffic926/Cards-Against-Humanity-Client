@@ -7,7 +7,7 @@ package CAH_Cards;
 
 /**
  *
- * @author Nick
+ * @author Nick and Justin
  */
 public abstract class Card 
 {
