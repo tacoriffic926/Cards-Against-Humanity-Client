@@ -19,22 +19,23 @@ public abstract class Card
     
     String txt;
     
-    public static void createCardPack(String filePath)
+    public static void createCardPack(ArrayList<String> filePath)
     {
         Scanner scan = null;
         ArrayList<String> cardTxt = new ArrayList<>();
-        try {
-            FileInputStream fileStream = new FileInputStream(filePath);
-            scan = new Scanner(fileStream);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Card.class.getName()).log(Level.SEVERE, null, ex);
+        for (int i=0;i<filePath.size();i++)
+        {
+            try {
+                FileInputStream fileStream = new FileInputStream(filePath.get(i));
+                scan = new Scanner(fileStream);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Card.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+            while(scan.hasNext())
+                cardTxt.add(scan.nextLine());
         }
-        
-        while(scan.hasNext())
-            cardTxt.add(scan.nextLine());
-        
 //        System.out.println(cardTxt);
-        
         for(String txt : cardTxt)
         {
             if(txt.charAt(0) == '~')         //Black
