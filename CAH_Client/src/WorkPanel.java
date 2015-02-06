@@ -7,20 +7,16 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
- * @author Justin
+ * @author Nick and Justin
  */
 public class WorkPanel extends JPanel implements ActionListener {
     
     int x;
     int y;
+    Font font = new Font("Helvetica", Font.BOLD, 50);
+    
     public WorkPanel(int x,int y)
     {
     this.x=x;
@@ -43,9 +39,9 @@ public class WorkPanel extends JPanel implements ActionListener {
     
     
     g.setColor(Color.WHITE);
-    g.setFont(new Font("Helvetica", Font.BOLD, 50));
-    g.drawString("Card Against Humanity",(x/3), 100);
-    g.drawString("InDev Client",(x/3)+100, 200);
+    g.setFont(font);
+    g.drawString("Card Against Humanity",(x/2)-(g.getFontMetrics(font).stringWidth("Card Against Humanity")/2), 100);
+    g.drawString("InDev Client",(x/2)-(g.getFontMetrics(font).stringWidth("InDev Client")/2), 200);
     JTextField ipInput = new JTextField();  //creates a new jtextfield to put on the jpanel
     ipInput.setSize(200,50);  //sets the size
     ipInput.setVisible(true);  //set it visible
