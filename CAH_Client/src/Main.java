@@ -68,7 +68,8 @@ public class Main
                 ip = ipTxt.getText();
                 port = Integer.parseInt(portTxt.getText());
                 name = nameTxt.getText();
-                //start client
+                Client c = new Client(ip,port,name);//start client
+                c.start();
                 frame.setVisible(false);
                 System.exit(0); // remove when we start the client
             }
