@@ -51,8 +51,8 @@ public class Server
                 {
                     newClient = new ServerClient(server.accept(), this);
                     clients.add(newClient);
-//                    t = new Thread(newClient);
-//                    t.start();
+                    t = new Thread(newClient);
+                    t.start();
                     
                 }
                 catch (IOException ex) 

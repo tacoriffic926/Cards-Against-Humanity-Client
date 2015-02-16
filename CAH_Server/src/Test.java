@@ -12,5 +12,8 @@ public class Test
         packsUsed.add("ExampleCardPack.txt");
         packsUsed.add("ExampleCardPack2.txt");
         Card.createCardPack(packsUsed);
+        
+        Server server = new Server(1996);
+        server.start();
     }
 }

@@ -35,6 +35,6 @@ public class ServerClient implements Runnable
     @Override
     public void run()
     {
-        
+        System.out.println("connected and started");
     }
 }
