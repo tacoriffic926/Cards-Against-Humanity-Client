@@ -8,12 +8,12 @@ public class Test
 {
     public static void main(String[] args)
     {
-        ArrayList<String> packsUsed = new ArrayList<>();
-        packsUsed.add("ExampleCardPack.txt");
-        packsUsed.add("ExampleCardPack2.txt");
-        Card.createCardPack(packsUsed);
+//        ArrayList<String> packsUsed = new ArrayList<>();
+//        packsUsed.add("ExampleCardPack.txt");
+//        packsUsed.add("ExampleCardPack2.txt");
+//        Card.createCardPack(packsUsed);
         
         Server server = new Server(1996);
-        server.start();
+        server.startServer();
     }
 }

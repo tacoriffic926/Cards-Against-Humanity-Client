@@ -3,6 +3,7 @@ package CAH_Cards;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -12,14 +13,14 @@ import java.util.logging.Logger;
  *
  * @author Nick and Justin
  */
-public abstract class Card 
+public class Card implements Serializable
 {
-    static ArrayList<BlackCard> blackCards = new ArrayList<>();
-    static ArrayList<WhiteCard> whiteCards = new ArrayList<>();
+    ArrayList<BlackCard> blackCards = new ArrayList<>();
+    ArrayList<WhiteCard> whiteCards = new ArrayList<>();
     
-    String txt;
+    public String txt;
     
-    public static void createCardPack(ArrayList<String> filePath)
+    public void createCardPack(ArrayList<String> filePath)
     {
         Scanner scan = null;
         ArrayList<String> cardTxt = new ArrayList<>();

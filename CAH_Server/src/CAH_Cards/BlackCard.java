@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class BlackCard extends Card
 {
-    int nbrOfRequiredCards;
+    public int nbrOfRequiredCards;
     
     public BlackCard(String txt)
     {
