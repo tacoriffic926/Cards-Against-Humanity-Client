@@ -20,6 +20,7 @@ public class ServerClient implements Runnable
     ObjectInputStream in;
     String name;
     boolean czar, host;
+    static int n;
     
     public ServerClient(Socket socket, Server server)
     {
@@ -41,25 +42,44 @@ public class ServerClient implements Runnable
     public void run()
     {
         System.out.println("connected and started");
-//        while(true)
-//        {
-//            Object obj = null;
-//            BlackCard b;
-//            try {
-//                obj = in.readObject();
-//            } catch (IOException ex) {
-//                Logger.getLogger(ServerClient.class.getName()).log(Level.SEVERE, null, ex);
-//            } catch (ClassNotFoundException ex) {
-//                Logger.getLogger(ServerClient.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            
-//            if(obj instanceof BlackCard)
-//            {
-//                b = (BlackCard) obj;
-//                System.out.println(b.txt);
-//                System.out.println(b.nbrOfRequiredCards);
-//            }
-//        }
+        while(socket.isConnected())
+        {
+            Object obj = null;
+            BlackCard b;
+            String s;
+            try {
+                obj = in.readObject();
+            } catch (IOException ex) {
+                Logger.getLogger(ServerClient.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ServerClient.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            if(obj instanceof String)
+            {
+                s = (String) obj;
+                if(s.startsWith("/setName "))
+                {
+                    s = s.substring(9);
+                    if(server.checkName(s))
+                    {
+                        try {
+                            out.writeObject("Name exists, to set name type \"/setName \'name\'\"");
+                        } catch (IOException ex) {
+                            Logger.getLogger(ServerClient.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        if(!name.startsWith("Client "))
+                        {
+                            setName("Client " + n++);
+                        }
+                    }
+                    else
+                    {
+                        setName(s);
+                    }
+                }
+            }
+        }
     }
     
     private void setName(String name)

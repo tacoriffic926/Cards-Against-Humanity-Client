@@ -36,6 +36,7 @@ public class Server extends JFrame implements ActionListener
     private Font font = new Font("Helvetica", Font.BOLD, 12);
     Random rand = new Random();
     Card cards = new Card();
+    ArrayList<String> cardPacks = new ArrayList();
     
     public Server(int port)
     {
@@ -109,6 +110,7 @@ public class Server extends JFrame implements ActionListener
             {
                 if(!running)
                     break;
+                
             }
         }
     }
@@ -154,6 +156,15 @@ public class Server extends JFrame implements ActionListener
         if(!found)
             output.append("player not found!\n");
     }
+    
+    boolean checkName(String name)
+    {
+        boolean found = false;
+        for(ServerClient client : clients)
+            if(name.equals(client.name))
+                found = true;
+        return found;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) 
@@ -183,21 +194,25 @@ public class Server extends JFrame implements ActionListener
                 {
                     
                 }
-                else if(command.startsWith("/addCardPack")) //add a card pack
+                else if(command.startsWith("/addCardPack ")) //add a card pack
                 {
-                    
+                    cardPacks.add(command.substring(13));
                 }
                 else if(command.startsWith("/setBlanks")) //sets nummber of blank cards
                 {
                     
                 }
-                else if(command.startsWith("/removeCardPack")) //removes a card pack
+                else if(command.startsWith("/removeCardPack ")) //removes a card pack
                 {
-                    
+                    cardPacks.remove(command.substring(16));
                 }
                 else if(command.startsWith("/printClients")) //prints connected clients
                 {
 //                    output.append(clients.get(0).toString());
+                }
+                else if(command.startsWith("/printCardPacks")) //prints card packs
+                {
+                    output.append(cardPacks + "\n");
                 }
                 else if(command.startsWith("/setHost ")) //*** if we have a host *** sets host
                 {
