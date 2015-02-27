@@ -39,9 +39,8 @@ public class Client implements ActionListener
         } catch (IOException ex) {
             System.err.println(ex);
         }
-        BlackCard b = new BlackCard("hi :1");
         try {
-            out.writeObject(b);
+            out.writeObject("/setName " + name);
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
