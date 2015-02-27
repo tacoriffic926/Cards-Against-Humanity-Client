@@ -1,4 +1,5 @@
 
+import CAH_Cards.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -38,7 +39,12 @@ public class Client implements ActionListener
         } catch (IOException ex) {
             System.err.println(ex);
         }
-        
+        BlackCard b = new BlackCard("hi :1");
+        try {
+            out.writeObject(b);
+        } catch (IOException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
         running = true;
         run();
     }
